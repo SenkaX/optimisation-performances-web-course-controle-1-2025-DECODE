@@ -4,6 +4,10 @@ framework:
 
     # Note that the session will be started ONLY if you read or write from it.
     session: true
+    
+    # HTTP Cache activé
+    http_cache:
+        enabled: true
 
     #esi: true
     #fragments: true

@@ -17,12 +17,23 @@
 		</div>
 		<div class="flex flex-col items-center justify-center w-5/12 space-y-6">
 			
-			<img src="{{asset('img/' ~ item.files[0].filename_disk)}}" class="w-full h-[640px] object-cover">
+			{# Image principale en WebP #}
+			<img src="{{asset('img/' ~ item.files[0].filename_disk)}}" 
+			     class="w-full h-[640px] object-cover"
+			     loading="eager"
+			     width="1200" 
+			     height="640"
+			     alt="{{item.title | striptags}}">
 
 			<div class="flex flex-row items-center justify-center space-x-6">
 				{% for file in item.files %}
 					{% if loop.index0 != 0 %}
-						<img src="{{asset('img/' ~ file.filename_disk)}}" class="w-full max-h-14 object-cover">
+						<img src="{{asset('img/' ~ file.filename_disk)}}" 
+						     class="w-full max-h-14 object-cover"
+						     loading="lazy"
+						     width="56"
+						     height="56"
+						     alt="Miniature {{loop.index}}">
 					{% endif%}
 				{% endfor%}
 			</div>
